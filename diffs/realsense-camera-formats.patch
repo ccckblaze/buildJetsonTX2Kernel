@@ -17,19 +17,19 @@ Signed-off-by: administrator <evgeni.raikhel@intel.com>
  include/uapi/linux/videodev2.h       |  7 ++++
  5 files changed, 119 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/usb/uvc/Makefile b/drivers/media/usb/uvc/Makefile
+diff --git a/usr/src/kernel/kernel-4.4drivers/media/usb/uvc/Makefile b/usr/src/kernel/kernel-4.4drivers/media/usb/uvc/Makefile
 index c26d12f..d86cf22 100644
---- a/drivers/media/usb/uvc/Makefile
-+++ b/drivers/media/usb/uvc/Makefile
+--- a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile
++++ b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile
 @@ -1,3 +1,4 @@
 +CONFIG_MODULE_SIG=n
  uvcvideo-objs  := uvc_driver.o uvc_queue.o uvc_v4l2.o uvc_video.o uvc_ctrl.o \
  		  uvc_status.o uvc_isight.o uvc_debugfs.o
  ifeq ($(CONFIG_MEDIA_CONTROLLER),y)
-diff --git a/drivers/media/usb/uvc/uvc_driver.c b/drivers/media/usb/uvc/uvc_driver.c
+diff --git a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvc_driver.c b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvc_driver.c
 index 9b8ac20..92eded4 100644
---- a/drivers/media/usb/uvc/uvc_driver.c
-+++ b/drivers/media/usb/uvc/uvc_driver.c
+--- a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvc_driver.c
++++ b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvc_driver.c
 @@ -168,6 +168,71 @@ static struct uvc_format_desc uvc_fmts[] = {
  		.guid		= UVC_GUID_FORMAT_RW10,
  		.fcc		= V4L2_PIX_FMT_SRGGB10P,
@@ -102,10 +102,10 @@ index 9b8ac20..92eded4 100644
  };
  
  /* ------------------------------------------------------------------------
-diff --git a/drivers/media/usb/uvc/uvcvideo.h b/drivers/media/usb/uvc/uvcvideo.h
+diff --git a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvcvideo.h b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvcvideo.h
 index 7e4d3ee..1bc3bc3 100644
---- a/drivers/media/usb/uvc/uvcvideo.h
-+++ b/drivers/media/usb/uvc/uvcvideo.h
+--- a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvcvideo.h
++++ b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/uvcvideo.h
 @@ -115,7 +115,6 @@
  #define UVC_GUID_FORMAT_M420 \
  	{ 'M',  '4',  '2',  '0', 0x00, 0x00, 0x10, 0x00, \
@@ -161,10 +161,10 @@ index 7e4d3ee..1bc3bc3 100644
  
  /* ------------------------------------------------------------------------
   * Driver specific constants.
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+diff --git a/usr/src/kernel/kernel-4.4/drivers/media/v4l2-core/v4l2-ioctl.c b/usr/src/kernel/kernel-4.4/drivers/media/v4l2-core/v4l2-ioctl.c
 index 7486af2..8c500e1 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+--- a/usr/src/kernel/kernel-4.4/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/usr/src/kernel/kernel-4.4/drivers/media/v4l2-core/v4l2-ioctl.c
 @@ -1229,6 +1229,12 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
  	case V4L2_SDR_FMT_CS8:		descr = "Complex S8"; break;
  	case V4L2_SDR_FMT_CS14LE:	descr = "Complex S14LE"; break;
@@ -178,10 +178,10 @@ index 7486af2..8c500e1 100644
  
  	default:
  		/* Compressed formats */
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+diff --git a/usr/src/kernel/kernel-4.4/include/uapi/linux/videodev2.h b/usr/src/kernel/kernel-4.4/include/uapi/linux/videodev2.h
 index 421d274..374ca95 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
+--- a/usr/src/kernel/kernel-4.4/include/uapi/linux/videodev2.h
++++ b/usr/src/kernel/kernel-4.4/include/uapi/linux/videodev2.h
 @@ -624,6 +624,13 @@ struct v4l2_pix_format {
  #define V4L2_PIX_FMT_Y8I      v4l2_fourcc('Y', '8', 'I', ' ') /* Greyscale 8-bit L/R interleaved */
  #define V4L2_PIX_FMT_Y12I     v4l2_fourcc('Y', '1', '2', 'I') /* Greyscale 12-bit L/R interleaved */
