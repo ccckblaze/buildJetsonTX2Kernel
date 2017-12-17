@@ -1,10 +1,10 @@
 #!/bin/bash
 # Fix the Makefiles so that they compile on the device
-echo "Patching devfreq kernel..."
+echo "Patching devfreq for kernel..."
 patch /usr/src/kernel/kernel-4.4/drivers/devfreq/Makefile ./diffs/devfreq/devfreq.patch
-echo "Patching nvgpu kernel..."
+echo "Patching nvgpu for kernel..."
 patch /usr/src/kernel/nvgpu/drivers/gpu/nvgpu/Makefile ./diffs/nvgpu/nvgpu.patch
-echo "Patching tegra-alt kernel..."
+echo "Patching tegra-alt for kernel..."
 patch /usr/src/kernel/kernel-4.4/sound/soc/tegra-alt/Makefile ./diffs/tegra-alt/tegra-alt.patch
 
 # Apply UVC formats patch for RealSense devices
