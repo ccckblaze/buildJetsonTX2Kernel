@@ -8,5 +8,7 @@ tar -xvf source_release.tbz2 sources/kernel_src-tx2.tbz2
 tar -xvf sources/kernel_src-tx2.tbz2
 cd kernel/kernel-4.4
 zcat /proc/config.gz > .config
+sudo sed -i 's/# CONFIG_SPI_SPIDEV is not set/CONFIG_SPI_SPIDEV=m/' .config
+sudo sed -i 's/CONFIG_LOCALVERSION=""/CONFIG_LOCALVERSION="-sugey1sensor"/' .config
 make xconfig
 
