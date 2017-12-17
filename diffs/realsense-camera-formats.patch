@@ -17,7 +17,7 @@ Signed-off-by: administrator <evgeni.raikhel@intel.com>
  include/uapi/linux/videodev2.h       |  7 ++++
  5 files changed, 119 insertions(+), 1 deletion(-)
 
-diff --git a/usr/src/kernel/kernel-4.4drivers/media/usb/uvc/Makefile b/usr/src/kernel/kernel-4.4drivers/media/usb/uvc/Makefile
+diff --git a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile
 index c26d12f..d86cf22 100644
 --- a/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile
 +++ b/usr/src/kernel/kernel-4.4/drivers/media/usb/uvc/Makefile
