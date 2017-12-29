@@ -1,0 +1,30 @@
+diff --git a/usr/src/kernel/display/drivers/video/tegra/dc/hdmi2.0.c b/usr/src/kernel/display/drivers/video/tegra/dc/hdmi2.0.c
+index c8b94a9..a08eada 100644
+--- a/usr/src/kernel/display/drivers/video/tegra/dc/hdmi2.0.c
++++ b/usr/src/kernel/display/drivers/video/tegra/dc/hdmi2.0.c
+@@ -1389,8 +1389,23 @@
+ 		if (tegra_dc_hpd(dc) && (!dc->initialized)) {
+ 			/* Unpowergate DC before reading EDID */
+ 			tegra_dc_unpowergate_locked(hdmi->dc);
+-			if (!tegra_edid_get_monspecs(hdmi->edid, &specs))
+-				tegra_dc_set_fb_mode(dc, specs.modedb, false);
++			if (!tegra_edid_get_monspecs(hdmi->edid, &specs)) {
++				err = tegra_dc_set_fb_mode(dc,
++						specs.modedb, false);
++				if (err) {
++					dev_err(&dc->ndev->dev,
++					"hdmi: failed to get valid mode err=%d\n",
++					err);
++					if (!tegra_hdmi_fb_mode_filter(dc,
++							&specs.modedb[0])){
++						tegra_dc_set_fb_mode(dc,
++							&tegra_dc_vga_mode,
++							false);
++					} else
++						tegra_dc_set_fb_mode(dc,
++							specs.modedb, false);
++				}
++			}
+ 			else {
+ 			/* if for some reason there is no edid upon hotplug */
+ 				tegra_dc_set_fb_mode(dc,

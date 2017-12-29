@@ -7,6 +7,10 @@ patch /usr/src/kernel/nvgpu/drivers/gpu/nvgpu/Makefile ./diffs/nvgpu/nvgpu.patch
 echo "Patching tegra-alt for kernel..."
 patch /usr/src/kernel/kernel-4.4/sound/soc/tegra-alt/Makefile ./diffs/tegra-alt/tegra-alt.patch
 
+# Apply HDMI hotplug patch 
+echo "Patching HDMI..."
+patch /usr/src/kernel/display/drivers/video/tegra/dc/hdmi2.0.c ./diffs/realsense-camera-formats.patch
+
 # Apply UVC formats patch for RealSense devices
 echo "Patching RealSense camera formats..."
 patch -p1 < ./diffs/realsense-camera-formats.patch
